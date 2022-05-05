@@ -7,15 +7,14 @@ const eta = prompt("Quanti anni hai?");
 console.log(eta);
 
 // Prezzo del biglietto al Km 
-const prezzo = '0.21';
-console.log(prezzo);
+let risultato;
 
 // Sconto del 20% per i minorenni
-const scontoMin = (treno * prezzo) * 20 / 100;
+const scontoMin = 0.21 * 20 / 100;
 console.log(scontoMin);
 
 // Sconto del 40% per gli over 65
-const scontoOver = (treno * prezzo) * 40 / 100;
+const scontoOver = 0.21 * 40 / 100;
 console.log(scontoOver);
 
 
@@ -45,16 +44,21 @@ if ( condizione 1 ) {
 }
 */
 
+
 if (eta < 18) {
-//sconto 20% --> andiamo a riga 58 (salto)
-    risultato = scontoMin;
+// sconto 20% --> andiamo a riga 58 (salto)
+    risultato = treno * scontoMin;
+    console.log(risultato);
 } else if (eta > 65) {
 // sconto 40%
-    risultato = scontoOver;
+    risultato = treno * scontoOver;
+    console.log(risultato);
 } else {
 // no sconto
+    risultato = (treno * 0.21);
+    console.log(risultato);
 }
 
 // Prezzo finale del biglietto 
-document.getElementById(mio_id).innerHTML = prezzo;
+document.getElementById("mio_id").innerHTML = "Il costo del tuo biglietto è di: " + risultato + " &euro;";
 
